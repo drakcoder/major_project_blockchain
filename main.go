@@ -19,5 +19,5 @@ func main() {
 	db.Connect()
 	// db.ConnectRedis()
 
-	app.Listen(":80")
+	app.Listen(":8080")
 }
