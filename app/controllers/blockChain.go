@@ -123,7 +123,7 @@ func MineBlock(c *fiber.Ctx) error {
 	hash := h.Sum(nil)
 	hashInt.SetBytes(hash)
 	target := big.NewInt(1)
-	target = target.Lsh(target, 224)
+	target = target.Lsh(target, 256)
 	if hashInt.Cmp(target) == -1 {
 		fmt.Println("found")
 		set := bson.D{bson.E{Key: "$set", Value: bson.D{bson.E{Key: "prevhash", Value: prevHash}, bson.E{Key: "hash", Value: hash}, bson.E{Key: "mined", Value: true}, bson.E{Key: "nonce", Value: int64(body.Nonce.Int64())}}}}
